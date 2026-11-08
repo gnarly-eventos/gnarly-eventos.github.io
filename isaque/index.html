@@ -23,7 +23,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .logo{font-weight:700;color:var(--blue);font-size:15px;letter-spacing:.02em}
 #trava h1{font-size:22px;margin:0;font-weight:500;text-wrap:balance}
 #trava p{margin:0;color:var(--muted);font-size:14px}
-#senha{font:500 20px var(--f-ui);letter-spacing:.04em;text-align:center;padding:12px 10px;border-radius:6px;border:1px solid #cfcfcf;background:var(--card);color:var(--fg);width:100%}
+.campo{position:relative}
+#olho{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:transparent;color:var(--muted);cursor:pointer;display:grid;place-items:center;border-radius:6px}
+#olho svg{width:22px;height:22px}
+#olho:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+#senha{font:500 20px var(--f-ui);letter-spacing:.04em;text-align:center;padding:12px 48px;border-radius:6px;border:1px solid #cfcfcf;background:var(--card);color:var(--fg);width:100%}
 #senha:focus-visible{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
 #entrar{font:500 15px var(--f-ui);text-transform:uppercase;letter-spacing:.04em;padding:13px;border-radius:6px;border:0;background:var(--blue);color:#fff;cursor:pointer}
 #entrar:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
@@ -42,6 +46,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .bar h1{margin:0;font-size:19px;font-weight:500;flex:1 1 auto;min-width:0}
 #atualizar{font:500 13px var(--f-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);background:transparent;border:0;padding:8px 4px;cursor:pointer;white-space:nowrap}
 #atualizar:disabled{color:var(--muted);cursor:default}
+#sair{font:500 13px var(--f-ui);letter-spacing:.04em;text-transform:uppercase;color:#555;background:transparent;border:1px solid #d6d6d6;border-radius:4px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+#sair:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 #atualizar:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:3px}
 .snack{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#323232;color:#fff;font-size:15px;line-height:1.35;padding-block:16px calc(16px + env(safe-area-inset-bottom,0px))}
 .snack .col{display:flex;gap:16px;align-items:center}
@@ -120,7 +126,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <h1>Metas do MJC</h1>
     <p>Digite a senha para ver as vendas</p>
     <label for="senha" hidden>Senha</label>
-    <input id="senha" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" required>
+    <div class="campo"><input id="senha" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" required><button type="button" id="olho" aria-label="Mostrar senha" aria-pressed="false"></button></div>
     <button type="submit" id="entrar">Entrar</button>
     <div id="erro" aria-live="polite"></div>
   </form>
@@ -130,7 +136,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section id="painel" hidden>
   <div class="bar">
     <div class="col gut">
-      <div class="t"><h1>Metas do MJC</h1><button type="button" id="atualizar" hidden>Atualizar agora</button></div>
+      <div class="t"><h1>Metas do MJC</h1><button type="button" id="atualizar" hidden>Atualizar agora</button><button type="button" id="sair" hidden>Sair</button></div>
     </div>
     <div class="col tabs"><span class="on">PRÓXIMOS</span></div>
   </div>
@@ -143,7 +149,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"7lenxhTwuoYSzFQdqDSYBg==","i":"oiwbnHxWVYrD8hBt","c":"K5l52D2dDT8Zfjl/6p3LlxqpS7Ci0Ig6AMXRX56JNsgLr+YwAA9/8JlW8SGeRCu507GAwtFDbSM1LzcmCZlrRrn1e2syzanX2YJDySA0ezkAahLb3OGaidkSpxZ2Qz8+0BK1lG5NVGMXOMSR8c0wbfNIKuh1/Ec2hk9xPbafkaN3j2luzuOjgvA8GmN9Hnkw2mQCEgGdht2tJeLDxL+wNJQEmvhaykwnFqYMVyy3K3JD0lFDHIdndNLwdq5AHMND+vFh7F9JndkgiBWVhqPnm7pNkDJR931yZXJmKqmjDw2PjJKjNZzMl1W6dHDdg8n0NtNbn0ibEyLnVf9lzbiIDo6HvanzDsEHLSKK3ht6gS9BhOZ2fmNYVQycQ1fkoxx8XD9SGvHtUw1wFOw1tQakY8tRou2l+IK+su8Hjfcn3w/vVvzTO6XG2jsQmKCaTzt3lKp014sAHP3W12LXlj8MovC56a3Co+Kbr/ujro1JFXD4ix+6QJLIx9ujbJ0QaHcSruOYUJf4Tfze99fQARKgj9KzlTYhgM1tPxz5q1AXdJQaZSQJXb8m70+tgdjoAd4bcNBTi6Rg4Tqu5zazyP7LiHfp+LM5WyqflacPvEBL0W/1qJzWonM60YH2uyJ3Ap4U9VCB+39jKgPQ3MVM+MhYVbHB0Yhl1cwAp+ZRyq10nLJntGj9JJJCCWRDzVCCvgIfJdyUqmSjiUAkqrbm22ejjQ2MdQfpUCMgVNBfTht9rQE/cBeK4MbB2RgWb2pYaDMGB6VEhohTdBLE2FG54EYAYxtGZ4GVAK9psmYI5SxfpufQ2kaAJXp8AXD4PI4nRSX2iZkHXfG3pGzcMTNP6hB2bopS3+6+wuIdThi089cg6yJWH/kYW79dOJ+nBKR4m+OXVRnOBJmzmb59lRcyk2r47MLib9rFX7qnATjWh7RH6onR30Skcn60gk+KVkhQQaV1KApsCNTz3rN7vRkn5Nti73IKS52O64N+Z8fRTT2UFsX/a90eW8d5D/VfuA6ke0oEYrtLH17dQQaM9TfMVlVaY96yTeDRrtpK2LWy4khPf8CHYHUf5FAdLz2A8QenS7WYscpMFBQtMLnXM+VHPXuwVYme0e8Tdf7pIjs7XP+Uv8pAAskimftVmKYw0UyJjP5NhNmLrgAtroWh/9052Ae4Sw5FRTDjaHmVdvYf1pz6vqdTYjWz1p9le7pftHJu8h3JEYu/12BwY438pTci07veUXDX3FEiKp8LqVTEuP1JB8m57NrOrSStqg1AbEQ3JUzE9LcRGlVCvIvN+x/EExRZZoEItPWYhPczMPJmPFdwxABevM1cVgw053+fF1UwOAffWTs1d4XGhT3nH0LVidKKIojcgn8uPQV5QAmxoBDXIAeAZYhhLBr6uh+wpG2FsqDLVt6D/EBMkNzrgwk6gIuPZVITMz6L9/46XMRtjSfOng=="}</script>
+<script id="dados" type="application/json">{"s":"5O7nbaj/89AaOnYPKevUSw==","i":"LJ8j5iv/Ms/NtgLp","c":"fD8xbmKn+Hkw++x9yAuq+3+RSiKd8WjLcrIYJLMAAbIkSbXqiqe0cTFPT8PDvtvZQHa5ggzcxeBRx+q/alw95H0UqzgRWFeW/zwK4/9q0feTiq6Ntu3zfcwUW1qfBvHuAlcMptKtyGFOPJSGPN4Qq4huYkvbA2SosyppjyCeeKxxVVq50oXVbx2Csodn4TzsYl8Lee9oqehbGiJgQO4xRLM4AbKefAwQ6DTNi7pwAVCFoJhAmsqzurq9xmeflYB5u/bt0O7wqyQjctlF2/R6hmb0+WmsfuUNhCvxKOWrYr7AYxViZHEIEHmUmtyqBfpYjxXCsY5C8ekHG7Kn+4Se91wwD3LJ+uGOHEmDqk+c0Bnq0AFaMRFfzp77B1cxg3u9LA6htw82+ifguOFSf59yiakQqTTnksIyJg605B6alSwsXuDAIkpldSRb0MXvGPhxKu8T2ntmkTWo0tHmbSVKqe719TAoVu5fVBu5tQphL3Kdyzi8NdXnj7gaRlXOsXLdEefGPYW48jcUroUkDV42FovQWjTMmT20K52KM6vh2ofR7OhfdVUYlTYD+xjCFvWNjYVZLbRszZL44JSjsfaDjJR6NxDuWgnhXT9mgtpqJO0loA2AsEGe0ZSxN52IQae4LqGXjcw3VgYpN4lt0XvmdPMZiF8O8YsLjV/cZf8L5vcAno8wQ2sygQOhhuKUHgOT7Mg8VdY/G6vK7I5LNLym8f/jFtj8fHeGv3+HvqjmtPwfKfuH43lp0htx2SKfwUyNBld2gh/S49IHfNj4kGcESGuqIIY22caeBpv9YCCQ2FmTOp85KTfJyVSRM5utGY2tw8uyFASs3rp1Z6LGbWUgz/wOHhvnxFbkBRLdurQuzqLpzzSWv77C9e/U+xjA02ih9bQtgtR5dIhCq8WNteN3W0sqksud3hc6hkI8pTHEhSC+6JCMhpoUGIW5CPmWQ/sUD3kpzgJ41KaMsB/93lhDDSoD5tGoSKI4g9/ffrieJO0DlfJ+q0FompHIS/x2Z5thh8+EgotF+5JUrug+RVFnx2DlYoU0GNGlE/kuZwf8qaO+vgGRdiHddpYc7SGHRNoAphzSMyJfxvqqryNsZVSVMYS3oo0NFjKGKksQAsn1IBaOgB82ZVUMQoWRrlb/OJcRbee5i8NKD3LRY/UqbEaoI0IJhMg1YZ7KdLyTqoD8EA/y1QJYSFvAyT0ZEUSj/AwRd31pMMtiIFIOnjtYiCABMi7IHxRUnp88kJV4lcqkWT+cypeJJNQ/U1PNZzL1JTuhFdRLfc4UZD53zsaqb83AxulKzJFxID0V9FrZAiXbF9zGX4jpoV25SpykJe9C06DuhyRiW93bUgKKiV+RTDNnPkN0ojb0/0TDiF3AyOAGlNSFSqG23LK0FKmV5X2Nx77KN9p+oQwzhfpoALbtLLX7PIO3581Mu74PiU4/sdQ/3w=="}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -364,7 +370,21 @@ function render(dados){
     L.append(c);
   });
 }
-let DADOS=null,SENHA='';
+let DADOS=null,SENHA='',ULT=Date.now();
+// ===== sair: botão, 1h sem mexer, e nunca guarda a senha nas páginas públicas =====
+function sair(){if(MODO==='caio')return;DADOS=null;SENHA='';
+  document.getElementById('lista').innerHTML='';document.getElementById('painel').hidden=true;document.getElementById('trava').hidden=false;
+  const i=document.getElementById('senha');i.value='';i.type='password';mostraOlho(false);document.getElementById('erro').textContent='';
+  if(tentativas().n>=MAXT)travar();window.scrollTo(0,0)}
+['pointerdown','keydown','scroll','touchstart'].forEach(t=>addEventListener(t,()=>{ULT=Date.now()},{passive:true}));
+function confereInativo(){if(MODO!=='caio'&&DADOS&&Date.now()-ULT>36e5)sair()}
+setInterval(confereInativo,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)confereInativo()});
+const OLHO_A='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const OLHO_F='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 5.1A10.6 10.6 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-3.2 4.2M6.6 6.6C3.9 8.4 2 12 2 12s3.6 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>';
+function mostraOlho(v){const o=document.getElementById('olho');o.innerHTML=v?OLHO_F:OLHO_A;o.setAttribute('aria-label',v?'Ocultar senha':'Mostrar senha');o.setAttribute('aria-pressed',String(v))}
+mostraOlho(false);
+document.getElementById('olho').addEventListener('click',()=>{const i=document.getElementById('senha'),v=i.type==='password';i.type=v?'text':'password';mostraOlho(v);i.focus()});
+document.getElementById('sair').addEventListener('click',sair);
 // ===== trava por tentativas erradas (guardada no aparelho de quem abre) =====
 const PAGINA='mjc',LIBERADO=0,MAXT=5,KT='trava-'+PAGINA;
 const LS={get(){try{return JSON.parse(localStorage.getItem(KT)||'null')}catch(_){return null}},set(v){try{localStorage.setItem(KT,JSON.stringify(v))}catch(_){}},del(){try{localStorage.removeItem(KT)}catch(_){}}};
@@ -373,7 +393,7 @@ function travar(){document.getElementById('f').hidden=true;document.getElementBy
 const snack=t=>{document.getElementById('snacktx').textContent=t;document.getElementById('snack').hidden=false};
 document.getElementById('snackx').onclick=()=>{document.getElementById('snack').hidden=true};
 const ss={get(){try{return sessionStorage.getItem('painel-pw')||''}catch(_){return ''}},set(v){try{sessionStorage.setItem('painel-pw',v)}catch(_){}}};
-async function entrar(pw){DADOS=await abrir(pw);SENHA=pw;ss.set(pw);document.getElementById('trava').hidden=true;document.getElementById('painel').hidden=false;render(DADOS);window.scrollTo(0,0);mostraBotao()}
+async function entrar(pw){DADOS=await abrir(pw);SENHA=pw;if(MODO==='caio')ss.set(pw);ULT=Date.now();document.getElementById('sair').hidden=MODO==='caio';document.getElementById('trava').hidden=true;document.getElementById('painel').hidden=false;render(DADOS);window.scrollTo(0,0);mostraBotao()}
 document.getElementById('f').addEventListener('submit',async ev=>{
   ev.preventDefault();const i=document.getElementById('senha'),er=document.getElementById('erro'),bt=document.getElementById('entrar');
   if(tentativas().n>=MAXT){travar();return}
@@ -387,8 +407,8 @@ document.getElementById('f').addEventListener('submit',async ev=>{
 // depois de atualizar a página recarrega: nesta aba não pede a senha de novo
 (async()=>{
   if(MODO==='caio'){document.getElementById('trava').hidden=true;try{await entrar('')}catch(_){}return}
-  if(tentativas().n>=MAXT){travar();return}
-  const pw=ss.get();if(pw){try{await entrar(pw)}catch(_){}}})();
+  try{sessionStorage.removeItem('painel-pw')}catch(_){}
+  if(tentativas().n>=MAXT){travar();return}})();
 
 // ===== atualizar pelo Sympla (só nas páginas do Caio, que têm o conector Sympla Gnarly) =====
 const SYMPLA='Sympla Gnarly',TRIG='trig_018kpaaDbXmDwWQqEdFqCMPT';let MCP=null,ART=null;
