@@ -4,6 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Bowlby+One&display=swap">
 <style>
+/* Layout: igual ao app do Sympla — barra branca com aba PRÓXIMOS, lista de cartões com banner, título, status, local e data; embaixo, os 3 números */
 :root{
   color-scheme:light;
   --bg:#f4f4f4; --card:#ffffff; --fg:#212121; --muted:#8a8a8a; --line:#e6e6e6;
@@ -16,6 +17,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:15px
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
 .gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .col{max-width:640px;margin:0 auto}
+/* senha */
 #trava{min-height:100vh;display:grid;place-items:center;background:var(--card)}
 #trava form{display:grid;gap:14px;width:min(320px,100%);text-align:center;padding-block:40px}
 .logo{font-weight:700;color:var(--blue);font-size:15px;letter-spacing:.02em}
@@ -38,6 +40,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .lib button{font:500 12px var(--f-ui);letter-spacing:.04em;text-transform:uppercase;color:var(--blue);background:var(--card);border:1px solid #cfe3f8;border-radius:4px;padding:7px 10px;cursor:pointer}
 .lib button:disabled{color:var(--muted);cursor:default}
 .lib button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* barra */
 .bar{background:var(--card);position:sticky;top:env(safe-area-inset-top,0px);z-index:5;box-shadow:0 1px 0 var(--line)}
 .bar .t{display:flex;align-items:center;gap:10px;padding-block:14px 6px}
 .bar h1{margin:0;font-size:19px;font-weight:500;flex:1 1 auto;min-width:0}
@@ -55,6 +58,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tabs span.on{color:var(--fg);border-bottom:3px solid var(--blue)}
 .atual{font-size:13px;color:var(--muted);padding-block:14px 2px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px}
 .lista{display:grid;gap:16px;padding-block:10px 40px}
+/* cartão */
 .ev{background:var(--card);border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);overflow:hidden}
 .ban{position:relative;aspect-ratio:2.6/1;max-width:100%;display:grid;place-items:center;overflow:hidden;text-align:center;padding:10px 16px}
 .ban b{font-family:var(--f-ban);font-weight:400;line-height:.95;font-size:clamp(26px,8vw,46px);text-wrap:balance;position:relative}
@@ -92,6 +96,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nums b{font-size:26px;font-weight:400;font-variant-numeric:tabular-nums;color:var(--fg);line-height:1.15}
 .nums b.vd{color:var(--blue);font-weight:500}
 .nums b.ok{color:var(--ok);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.15;align-self:center}
+/* faixas do MJC */
 .fx{margin:0 16px;border-top:1px solid var(--line);padding:12px 0 16px;display:grid;gap:10px}
 .regua{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .regua div{border-radius:6px;background:#f2f2f2;padding:7px 4px 8px;text-align:center;display:grid;gap:1px}
@@ -106,6 +111,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .barra i{display:block;height:100%;background:var(--blue);border-radius:3px}
 .fx p{margin:0;font-size:14px;text-wrap:pretty}
 .fx p.dim{color:var(--muted);font-size:13px}
+.fx p.plano{background:#f6f9fe;border-left:3px solid var(--blue);padding:8px 10px;border-radius:0 4px 4px 0}
+.zap{justify-self:start;font:500 13px var(--f-ui);text-transform:uppercase;letter-spacing:.04em;color:#fff;background:#1f9d47;border-radius:6px;padding:10px 14px;text-decoration:none}
+.zap:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .fxl{margin:0 16px;border-top:1px solid var(--line);padding:10px 0 12px;font-size:14px;text-align:center;color:#555}
 .fxl b{font-weight:500;color:var(--fg)}
 .vazio{background:var(--card);border-radius:6px;padding:28px 20px;text-align:center;color:var(--muted);box-shadow:0 1px 3px rgba(0,0,0,.12)}
@@ -141,12 +149,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"ecq/l66IxQD8ICuVquYr4g==","i":"FY9t4beAHWz7V7i6","c":"hI+aDSkZStiInm/LdXrvHzWprUIGBi0jBjG/XGLSrlBNXOZydQzembPRP2SbhFAMFh8cco9dyzt1RWWMZN1Bu4FnSQQfyW/2Tit4r/AL9spQge3KqFhgA1zMs8yfhFviqJJ3nc2ezvVGR1yVCgE87muMiysySUEs8vfMht7AXE7vFnpBt1Iz4DNFUh6rEMUl7spPnZvkfQfy+MhDwXxB9tA3Fg+Au9TGmDcT4OwVuUoPoR/c50dmvqAj9EeAlE+Qr7lO7P6D1UON/AmiiiRHhpHnnKYCs5X9e7fQZ+W1iEgJ2tB/1B1LJAXajDVHj7Z43rVPsUk9a9Cf/CT5q1EIphnFslvaYfqLxN6Ep1OJUW6C5aUgYBNIm0oNHUBg0b/p5VNCfzFDxKgxapYH5lVL+F01maICw0/ltV6LsbsFWbNfXdgdYbOlnOkSvGq5ji5D8DvS5Sa4ElKnFOPTn/tXF6+7nQ235xebWvMTgd5CNNwPz7xgEAd7NrS9WZGVnWTqEAr+D7jQ/viJ+fjfmMlRTphUBe7frEwnNgSth2MTzsjDzSK2nAn4unOSngUoJGkQ/izQDNM7uEt2IzQ0fjKsdhVtYCoOqF63KZZmXaE+2mKY4H8qlzcMfN2GX+o3PUncmhFH7BAvA6wz5g8AOvD+cNwlkmi6Ln5ur2VkX92PaZAi2REPyLDkfnXCkX3P0eYenhaFHbDvVdYfnvcvoE3VWgtfj/U2jzxltCB+wtXvFA15BHWLCazJ9/zqE4fLT9KUAuWIwbYPXiEGgQn4GYQCY6iE1sk2NxGJhrdsqyPRmp9jRP8yPNDn75e6H8du/ng+s5XY26lIN2Q5+nGmMLp1BU+Br9pyubMlR25TlqCQ+g4H9XqLbePESAsDiSgWvtQ/oszEOxUoutLoEnk9V516lu7Oga0faI+AjBF52NnElSmKDVHCsTBkkxMBB222dqFbH3HFIdSlb1D/3cgz5irjMDOiNvrTPnTayFegelqoA8iKFbRTeVOEKpLlVzeAFSCufvFu2nplIaExMqN3BaQsSznqI7TOxUtm6eoICOG2gEkU2+5jVSCKu6blVDE1hR4rXaudtZh0BVZ+VoBKjdemRt+HRM/ImajIW+lKfLxrf0NjDd02RP7+uuIQfWPeoKxQPzlrljIS2QenZPpu1ZzGXaJL59PaomxW7+TfL3ZUWEzlp+xyEjJ/V+PZT0yijPi1INdn96nansad2Ff8ouvUwJewCEg0lPJkSl3nArXs2/7RfGwyyuoZKHi8sBRFPe11GaJmm+T99FGLRNTJ3BLSZrPQLYW3uC8aoMOq1ZKBKC0QiAeBZSpmrVoxT37SPesAcI/7NqqW5MpGhZqD7KEeU8mXFkWqOJlYOnoAqc6+wvqEvrKseqhkAwRaJadPNVQr4mrxKhOx7KiRWYtir7nE6v2k5rXDyENHBdJ3K3jj8g=="}</script>
+<script id="dados" type="application/json">{"s":"UwCcUC0If4Nr+8n5jWzC2Q==","i":"EZD+dtHW7Zf3RVSX","c":"dBoCwz46hiQrEubfG6nwhIvPX5gFDUNQNikucPSLs3ugvHvSEzS0OxB47TYG/DWwirVbhG/ANCHtuFACmZ+NJrZqHKN6brcjarOOx4XyilYnZhlwJIfT6xpHUnsR3bmuOy9PtpWNh6FRxUTRpy9PX+RRLFppk1WjngwGlTzs772JHgH1s8OpP4BUFgmyQBw4ylgRzMLp8HEwJSG8GhE+D3Pc2LwXSl1SGTfYm3s25ZmGC0VTXBBewkqChsW9TAdYjlW1bdTti4PLe/6BBrV6+DF+W/OzizILZ7tm6T4KVvLyp5TXvmnA34MV0R/wR56a05LLwVHP5GVXLKf0dp5Ow1pcG5F/NKFNH7FW85n61vHENsGNWiucRYwaXVehKNBxPo/JAKzb0fVCdPJE/jjTLIcGhk3W2aqvvdXYQ91WDQg8HdnPgC1Wq3imFPmxgtPlsdcWjxuQtLdudiudvAymVP8+HXoXncd9xpPBWoWVfJl3qsNTcnzvnpqOhioCqLObdg1zDmBznRSXxKCSti4I090qZhro06hhORwPpoRmomI54ywOK4gW1ij+QTgk8ZD3E6aJVsdxtCj73dudmxDylgbCc99vHguLuuPcp95a/izc9tLfn+DeImqAhzmJ7l17jtRLH9lBYDGK2suJ2j8SK0PSWW/N90UHX3lGh+akJ+stSq+EfymUuoZTQeqjEtGewgax8jdLQ11HECqAGWS9Ha1rT80z3LfTYWAUjsiQwt+nn8MJolCAriBL+fDW3cqBFbGWYipekeag+PngfcpERPIImLt+RmM/dIuFjXKbLeBGlwRyge+X2rVXfZXsTIJpyz4QMln53Tdf4BR1u7DJKBh7gznLGg8U8dNjq1HJdmV+I9NhF56NF/BuMln8r06fVsKyiT4vB2hqLSqUYwWJz0E/PXXP+LOqtmW2GAoH7GamNr+VRfAfjsUhIqT4+CU/Fimk2jQG+ETnj+905pmtBkwiMo8usCG+FxRlVIq1rp4gjwEpL0Y2EEXXShda4e7n4rrH1WfhOnYoUCgVauTUHgXF5D/5TGkVBzGl/tfYil1GuHOQl6F8lFyD7OV1KORxPhmOQCxuvP9tK/enPYpmX2ioFBVjUJvgMVhNq3c3/K0Inesg7h2TZMO/r269mXsw/h8+pVeShWYTAkpWQ67QT0UUgqFL4wxwgo5bXD0Sh5zTrcYrMNgd2e1zggrOUIQpNAnqQfWmI+zOEELrWirqQGFZAOTYc8n0E/jHCSItkRV30YOEs0n2AX/FpIYJ3NbeYpvQQNticfU+OLI1RDKBrWn3tic94OPlNznxP1EXA371pviuIjkejj0FdjO/e4ZAM4t7WyMFaXk0PfCAZw41z4Lbq+VVkPU5O8lnBlhEpV5g/oIXEPB1diAxS8rFu9b8geMnzlJYtevKJGs0Mz51eGr2928/tqtHem+F7dbYdA=="}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
 let BLOB=JSON.parse(document.getElementById('dados').textContent);
 const MODO='mjc';
+// ===== contas da Entrada de Eventos (mesma lógica) =====
 const num=v=>{if(v===null||v===undefined||v==='')return 0;if(typeof v==='number')return v;let s=String(v).replace(/R\$|\s/g,'');if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');const n=parseFloat(s);return isFinite(n)?n:0};
 const vC=r=>r&&r.status==='a informar'&&!num(r.valor)&&num(r.est)?num(r.est):num(r&&r.valor);
 const estimado=r=>r&&r.status==='a informar'&&!num(r.valor)&&num(r.est)>0;
@@ -163,6 +172,7 @@ function pctCasaDe(e,pag){const fx=Array.isArray(e.faixasPct)?e.faixasPct:null;
   return num(e.pctPista)/100}
 
 function impostoCasaDe(e,total){const pi=pctImposto(e.imposto);if(!pi)return 0;const f=e.fat||{},sp=e.openbar==='Sim';
+  // base (Caio, 06/11): vendas antecipadas + portaria na máquina do Caio (já sem a taxa). Portaria na máquina da casa não entra. Texto com "Sympla" = só as vendas antecipadas.
   const ant=num(f.pista)+(sp?num(f.openbar):0),port=e.portaria==='Da casa'||impostoBaseSympla(e)?0:num(f.portPista)+(sp?num(f.portOB):0);
   return Math.round(pi*(ant+port)*100)/100}
 
@@ -189,6 +199,7 @@ function calc(e){
   const repasseCasa=baseCasa*pct+casaOB-jaRec+adic-impCasaParte+taxaMaq;
   const resultado=(pistaTot-baseCasa*pctInt+festaOB+cacheF)-custos-(e.tipo==='Festa do Michael'||cacheF>0?0:total*0.05)+lojaLiq;
   const pend=e.custos.filter(r=>r.status==='a informar').length;
+  // ponto de equilíbrio (sem lojinha, para ser conservador)
   const mj=e.tipo==='Festa do Michael', impPct=mj||cacheF>0?0:0.05, q=e.equilibrio||{};
   const semLoja=(pistaTot-baseCasa*pctInt+festaOB+cacheF)-custos-total*impPct;
   const falta=Math.max(0,-semLoja);
@@ -199,8 +210,10 @@ function calc(e){
   const pagantes=mj?Math.max(0,mjcPag-pagOB):num(e.ingressosVendidos), lot=num(e.lotacao), faltaLot=lot>0?lot-pagantes:null;
   const gerPista=pistaTot*((1-pctInt)-impPct), gerOB=ob*(0.30-impPct);
   const nO2=(nO!==null&&faltaLotOB!==null&&nO>faltaLotOB)?'semvaga':null;
+  // coberto: quantos de cada setor eram necessários, na mesma proporção das vendas reais
   const ger=gerPista+(sp?gerOB:0), ratio=ger>0?custos/ger:null;
   const needP=ratio!==null&&pagantes>0?Math.ceil(pagantes*ratio-1e-9):null, needO=ratio!==null&&sp&&pagOB>0?Math.ceil(pagOB*ratio-1e-9):null;
+  // falta: lotando o camarote, quanto ainda falta de pista
   const vagasOB=faltaLotOB!==null?Math.max(0,faltaLotOB):null;
   const zP=(sp&&vagasOB!==null&&cP>0)?Math.max(0,Math.ceil((falta-vagasOB*cO)/cP-1e-9)):null;
   return {lojaCasa,taxaMaq,taxaMaqPct:mq.t,copoDed,baseCasa,estN,comissao,tudoOB,impCasa,impCasaParte,pct,pagFaixa,mjcPag,mjcGrat,mjcCache,total,lojaLiq,custos,repasseCasa,resultado,pend,sp,pctInt,semLoja,falta,cP,cO,nP,nO,mj,impPct,sobra,exP,exO,pagantes,lot,faltaLot,pagOB,lotOB,faltaLotOB,gerPista,gerOB,nO2,needP,needO,vagasOB,zP};
@@ -244,10 +257,12 @@ function aplicarEm(ev,a,cats,arquivo){
   const qP=T['Pista'].q,qO=sp?T['Camarote open bar'].q:0;
   if(sp)ev.pagantesOB=qO;
   if(mj){if(!ev.mjc)ev.mjc={pagantes:[],gratuitos:[]};
+    // tudo que veio do Sympla vira uma linha só; linhas de portaria e lista na porta continuam como estão
     ev.mjc.pagantes=[{tipo:'Sympla',qtd:qP+qO}].concat(ev.mjc.pagantes.filter(x=>/portaria/i.test(x.tipo||'')));
     if(!ev.mjc.pagantes.some(x=>/portaria/i.test(x.tipo||'')))ev.mjc.pagantes.push({tipo:'Portaria',qtd:0});
     ev.mjc.gratuitos=[{tipo:'Cortesias Sympla',qtd:T['Gratuito'].q}].concat(ev.mjc.gratuitos.filter(x=>/portaria|lista|porta/i.test(x.tipo||'')))}
   else ev.ingressosVendidos=qP;
+  // histórico acumulado por dia
   const dias={};a.tipos.forEach(t=>{const k=cats[t.tipo];if(k!=='Pista'&&k!=='Camarote open bar')return;Object.entries(t.dias).forEach(([d,x])=>{dias[d]=dias[d]||{p:0,o:0,f:0};if(k==='Pista')dias[d].p+=x.q;else dias[d].o+=x.q;dias[d].f+=x.v})});
   let p=0,o=0,f=0;ev.vendas=Object.keys(dias).sort().map(d=>{p+=dias[d].p;o+=dias[d].o;f+=dias[d].f;return {d,p,o,f:r2(f)}});
   ev.borderoCat=Object.assign({},ev.borderoCat||{},cats);
@@ -261,6 +276,7 @@ function agregaVendas(e,v){
     const dias={};(t.por_dia||[]).forEach(d=>{dias[d.dia]={q:d.qtd,v:d.liquido}});tipos.push({tipo:t.tipo,q:t.qtd,v:t.liquido,dias})});
   return {a:{tipos,tot},cats}}
 
+// vendidos nos últimos 7 dias (histórico acumulado do Sympla)
 function r7De(vend,h){if(!Array.isArray(vend)||!vend.length)return 0;const d=new Date(h+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-7);const lim=d.toISOString().slice(0,10);
   const t=x=>(x.p||0)+(x.o||0);let base=0;for(const x of vend){if(x.d<=lim)base=t(x)}return Math.max(0,t(vend[vend.length-1])-base)}
 
@@ -269,6 +285,7 @@ function slim(e){const o={};KEYS.forEach(k=>{if(e[k]!==undefined)o[k]=JSON.parse
   o.custos=(o.custos||[]).map(r=>({valor:r.valor,status:r.status,est:r.est}));o.adicionais=(o.adicionais||[]).map(r=>({efeito:r.efeito,valor:r.valor}));
   o.loja=(o.loja||[]).map(r=>({bruto:r.bruto}));return o}
 
+// ===== criptografia =====
 const b64=s=>Uint8Array.from(atob(s),ch=>ch.charCodeAt(0));
 const tob64=u=>{let s='';u.forEach(x=>s+=String.fromCharCode(x));return btoa(s)};
 async function chave(pw,salt,uso){const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
@@ -282,6 +299,7 @@ async function fechar(obj,pw){const salt=crypto.getRandomValues(new Uint8Array(1
   const key=await chave(pw,salt,'encrypt');const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(JSON.stringify(obj))));
   return {s:tob64(salt),i:tob64(iv),c:tob64(ct)}}
 const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+// até as 6h da manhã a festa da noite anterior continua na lista
 function hoje(){const t=new Date();if(t.getHours()<6)t.setDate(t.getDate()-1);return iso(t)}
 const MES=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 const SEM=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
@@ -294,15 +312,26 @@ function caixa(rot,val,cls,txtZero){const d=el('div');d.append(el('span',null,ro
   if(val===null||val===undefined)d.append(el('b',null,'—'));
   else if(val===0&&txtZero)d.append(el('b','ok',txtZero));
   else d.append(el('b',cls||null,fmt(val)));return d}
+// horários das atualizações automáticas (Brasília)
 const HORAS=[[9,32],[14,32],[17,32],[19,32],[23,32]];
 function proxima(){const sp=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'})),m=sp.getHours()*60+sp.getMinutes();
   const h=HORAS.find(([a,b])=>a*60+b+5>m),[a,b]=h||HORAS[0];return (h?'hoje':'amanhã')+' às '+String(a).padStart(2,'0')+':'+String(b+5).padStart(2,'0')}
+// ===== faixas do cachê do MJC (pagantes): até 200, 201 a 400, 401 ou mais =====
 const FX=[{ate:200,v:200,t:'até 200'},{ate:400,v:500,t:'201 a 400'},{ate:null,v:1000,t:'401 ou mais'}];
 function faixa(v){const i=v<=200?0:v<=400?1:2,ini=i?FX[i-1].ate:0,fim=i<2?FX[i].ate+1:null;
   return {i,n:i+1,val:FX[i].v,prox:i<2?FX[i+1].v:null,falta:i<2?fim-v:0,pct:i<2?Math.min(100,Math.max(0,(v-ini)/(fim-ini)*100)):100}}
 function diasAte(d){return Math.round((new Date(d+'T12:00:00')-new Date(iso(new Date())+'T12:00:00'))/864e5)}
 function ritmoTxt(e){const dias=diasAte(e.d);
   return 'Últimos 7 dias: '+fmt(e.r7||0)+(e.r7===1?' vendido':' vendidos')+(dias>0?' · faltam '+dias+(dias===1?' dia':' dias'):dias===0?' · é hoje':'')}
+function plano(e,f){const dias=diasAte(e.d),rit=(e.r7||0)/7;
+  if(f.i===2)return e.x===0?'Esgotado! Faixa máxima garantida.':'Faixa máxima garantida. Agora o foco é esgotar a festa.';
+  if(dias<=0)return 'É hoje: faltam '+fmt(f.falta)+' pagantes na portaria para a faixa '+(f.n+1)+'.';
+  if(f.falta<=10)return 'Faltam só '+fmt(f.falta)+'! Um último empurrão nos stories resolve.';
+  if(rit*dias>=f.falta)return 'No ritmo atual dá para chegar na faixa '+(f.n+1)+'. É manter a divulgação.';
+  const precisa=Math.ceil(f.falta/dias),rr=Math.round(rit*10)/10;
+  return 'Para chegar na faixa '+(f.n+1)+' precisamos de ~'+fmt(precisa)+' por dia'+(rr>0?' (hoje vendemos ~'+fmt(rr)+' por dia)':'')+'. Hora de reforçar a divulgação.'}
+function textoEquipe(e,f){const dt=e.d.slice(8,10)+'/'+e.d.slice(5,7);
+  return '*Festa do Michael · '+e.c+' '+dt+'*\nVendidos: '+fmt(e.v)+'\nFaixa '+f.n+' de 3'+(f.i<2?' · faltam '+fmt(f.falta)+' para a faixa '+(f.n+1):'')+'\n'+ritmoTxt(e)+'\n'+plano(e,f)}
 function blocoFaixa(e,f){const b=el('div','fx');
   const reg=el('div','regua');FX.forEach((x,k)=>{const d=el('div',k===f.i?'on':k<f.i?'ja':null);
     d.append(el('span',null,'Faixa '+(k+1)),el('b',null,brl(x.v)),el('small',null,x.t));reg.append(d)});
@@ -342,6 +371,7 @@ function render(dados){
   });
 }
 let DADOS=null,SENHA='',ULT=Date.now();
+// ===== sair: botão, 1h sem mexer, e nunca guarda a senha nas páginas públicas =====
 function sair(){if(MODO==='caio')return;DADOS=null;SENHA='';
   document.getElementById('lista').innerHTML='';document.getElementById('painel').hidden=true;document.getElementById('trava').hidden=false;
   const i=document.getElementById('senha');i.value='';i.type='password';mostraOlho(false);document.getElementById('erro').textContent='';
@@ -355,6 +385,7 @@ function mostraOlho(v){const o=document.getElementById('olho');o.innerHTML=v?OLH
 mostraOlho(false);
 document.getElementById('olho').addEventListener('click',()=>{const i=document.getElementById('senha'),v=i.type==='password';i.type=v?'text':'password';mostraOlho(v);i.focus()});
 document.getElementById('sair').addEventListener('click',sair);
+// ===== trava por tentativas erradas (guardada no aparelho de quem abre) =====
 const PAGINA='mjc',LIBERADO=0,MAXT=5,KT='trava-'+PAGINA;
 const LS={get(){try{return JSON.parse(localStorage.getItem(KT)||'null')}catch(_){return null}},set(v){try{localStorage.setItem(KT,JSON.stringify(v))}catch(_){}},del(){try{localStorage.removeItem(KT)}catch(_){}}};
 function tentativas(){let t=LS.get();if(!t||typeof t.n!=='number')return {n:0,em:0};if(LIBERADO&&LIBERADO>=t.em){LS.del();return {n:0,em:0}}return t}
@@ -373,11 +404,14 @@ document.getElementById('f').addEventListener('submit',async ev=>{
     const r=MAXT-t.n;er.textContent='Senha incorreta. '+(r===1?'Resta 1 tentativa.':'Restam '+r+' tentativas.');i.value='';i.focus()}
   finally{bt.disabled=false;bt.textContent='Entrar'}
 });
+// depois de atualizar a página recarrega: nesta aba não pede a senha de novo
 (async()=>{
   if(MODO==='caio'){document.getElementById('trava').hidden=true;try{await entrar('')}catch(_){}return}
   try{sessionStorage.removeItem('painel-pw')}catch(_){}
   if(tentativas().n>=MAXT){travar();return}})();
-const SYMPLA='Sympla Gnarly',TRIG='trig_018kpaaDbXmDwWQqEdFqCMPT';let MCP=null,ART=null;
+
+// ===== atualizar pelo Sympla (só nas páginas do Caio, que têm o conector Sympla Gnarly) =====
+const SYMPLA='Sympla Gnarly',TRIG='trig_01Mw6NTko5sT6MLUHgXiDc38';let MCP=null,ART=null;
 const capP=(async()=>{try{MCP=await window.claude.use('mcp')}catch(_){}try{ART=await window.claude.use('artifact')}catch(_){}})();
 async function mostraBotao(){await capP;const meu=!!MCP&&MODO==='caio'&&!!DADOS;document.getElementById('atualizar').hidden=!meu;document.getElementById('lib').hidden=!meu}
 const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias'};
@@ -406,6 +440,7 @@ document.getElementById('atualizar').addEventListener('click',async()=>{
   const fila=[...alvo];await Promise.all(Array.from({length:Math.min(3,fila.length)},async()=>{while(fila.length)await um(fila.shift())}));
   if(!ok){bt.disabled=false;bt.textContent='Atualizar agora';snack(erroTxt(erro));return}
   DADOS.gerado=new Date().toISOString();render(DADOS);
+  // custos vêm da Entrada de Eventos: a tarefa agendada lê a Entrada + Sympla e republica todos os painéis
   try{await MCP.callTool('Claude Code Remote','fire_trigger',{trigger_id:TRIG});
     snack('Vendas atualizadas. Agora estou puxando os custos da Entrada de Eventos e atualizando os links dos sócios e do MJC: em uns 3 minutos a página recarrega sozinha.')}
   catch(err){
