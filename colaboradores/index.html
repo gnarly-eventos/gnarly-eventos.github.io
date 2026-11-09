@@ -386,7 +386,7 @@ mostraOlho(false);
 document.getElementById('olho').addEventListener('click',()=>{const i=document.getElementById('senha'),v=i.type==='password';i.type=v?'text':'password';mostraOlho(v);i.focus()});
 document.getElementById('sair').addEventListener('click',sair);
 // ===== trava por tentativas erradas (guardada no aparelho de quem abre) =====
-const PAGINA='colab',LIBERADO=0,MAXT=5,KT='trava-'+PAGINA;
+const PAGINA='colab',LIBERADO=1794188366568,MAXT=5,KT='trava-'+PAGINA;
 const LS={get(){try{return JSON.parse(localStorage.getItem(KT)||'null')}catch(_){return null}},set(v){try{localStorage.setItem(KT,JSON.stringify(v))}catch(_){}},del(){try{localStorage.removeItem(KT)}catch(_){}}};
 function tentativas(){let t=LS.get();if(!t||typeof t.n!=='number')return {n:0,em:0};if(LIBERADO&&LIBERADO>=t.em){LS.del();return {n:0,em:0}}return t}
 function travar(){document.getElementById('f').hidden=true;document.getElementById('travado').hidden=false}
