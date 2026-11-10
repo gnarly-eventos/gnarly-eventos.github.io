@@ -76,6 +76,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .antr{background:radial-gradient(120% 140% at 50% 0,#fff2a8 0,#ffd400 45%,#e3a600 100%);color:#5a3d00}
 .antr b{color:#b0122e;text-shadow:0 3px 0 #fff3b0}
 .antr small{background:#b0122e;color:#fff}
+.lov{background:radial-gradient(120% 140% at 50% 110%,#ff4fa3 0,#7b1fa2 50%,#1c0630 100%);color:#fff}
+.lov b{color:#fff;text-shadow:0 3px 0 #4a0d6b,0 0 22px rgba(255,120,200,.5)}
+.lov small{background:#fff;color:#4a0d6b}
 .info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:14px 16px 12px}
 .info h2{margin:0;font-size:15px;font-weight:500;text-transform:uppercase;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .data{grid-row:1/4;grid-column:2;align-self:start;border:1px solid #cfcfcf;border-radius:3px;text-align:center;width:38px;padding:2px 0 3px;line-height:1}
@@ -140,7 +143,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="col tabs"><span class="on">PRÓXIMOS</span></div>
   </div>
   <div class="col gut">
-    <div class="lib" id="lib" hidden><span>Destravar quem errou a senha:</span><button type="button" data-p="colab">Liberar Colaboradores</button><button type="button" data-p="mjc">Liberar Isaque</button><button type="button" data-p="socios">Liberar Sócios</button></div>
+    <div class="lib" id="lib" hidden><span>Destravar quem errou a senha:</span><button type="button" data-p="colab">Liberar Colaboradores</button><button type="button" data-p="mjc">Liberar Isaque</button><button type="button" data-p="socios">Liberar Sócios</button><button type="button" data-p="lovatic">Liberar Lovatic DLBR</button></div>
     <div class="atual" id="atual"></div>
     <div class="lista" id="lista"></div>
   </div>
@@ -148,7 +151,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"Cgbq2dx2drTeOh2dD7EE1g==","i":"Le7A01BPzTXdlDx1","c":"83VNmzsed9TJcq5gJ7TGebgRWbVCIq94LaLk/NhbXn4wm0Sike8qH3Hr8O0En2NPMj4otxqi6zwIPQUQ6eZk0H1kjA05+gVdU+NMcP8CdjEEqooyjbFOFIWN7CdEDy7whX0BYivT0rmUwcRCqzkxkwM8TucgZNnqD0gFXQy9T2ohX/G6/ulm7F4tMyUVFMpx7tLu66IePmPsZo2zItMh2II9V4Eg54D+ksCDh62M8VNimWuwaG0iWE4IhbTYFFnqUEnTFJsuLu0YQL5ZBXWDUnCu9M/L1KlGnGudHINszbW3XTjCKrR+RQvptAat3+pn1NKpkOVvxaq5YELzipJN5jOIH4uQJYPOu4qoCsV8g4U+nDIEyhfs0CdDNzGO/z1Ma4cTZEY6iN0sDf/JSMI74+v4phgcXEKL4CiS1gxFcY9jAhWRFfzppk2ej/ryzCAR0unSGg7ZaWaQPmq/9DSDbm1eN0yVDAy44gfAg4ocQkKsAeUJgKJy1j2uhLaE6MjkBRQ6bBDwKEcSOe2kTDgg20Cc6S4wo/B8D3z04BTZIumSYoW0mw+WkliRf3DPXpJVNjZXucVIGrzjLlaIVKSbhFgUVA7JuweFyRbxQF8oZ2N40PiNXH4SsIB0rBrHZGa0rklpodNvGcW0ZFAqYWsNv0u90Uqf1/26f4nvrxC+mfOdxMXzySN0monQYDdgyJdQ1T2toYDfOIy8UyPbhiDa39hWkJRopjH0r5X3eF1ME/a03iY+DzgdToc9BXENNAm488wTq4qtDP0iPqrjnyeORtAbj6CqTs9CToWD1C/Bu928hPBM4Xt+6t1KUSc28ADSb6VyGbL1jsHh1lITZH0Ph1q6+V1O/bvdAvs2GeCf1sicWuclZ+MMrySYWYyRmtjXIcG9Q6uNqMwjNufHtYIyN88agFfofjmaWPUDYZonm6WEnC0AtYdlz66OllmROAfcVfbevqFxa1Au4sfHgrVEW2ER7f/f9deQG/IxLjUYHRDsAwFbZrG9QhOaX3MYlu2QM2XGxCyJXJ9EzeXpPU1oc/xhMOkR6K4C6GCV1HNQjLrVfZWUs1uaC+/U0tgwMqRbm5CCdB7Z/SQO9xDrkbTDm0IdPyVLkLBRL4Y6RsIg6dB4LC6Qu94uwBKJKHFMWsiY1MkI4muD40fmsHCfiFJ9tbQ8F7ZgJYsS3KA0iLEU9tlq6a092El/ktgipdqhwC3pJIDhhXqYeTAxg/+Tc/njRlD9modW+TkJ9gx8kJ0JtXjI3H7vVybaks0i1hig1aJRqsbXKQWO/dnUUgpy+PR5ajnno2IbWdmQ4pK+Jf9JH97Yux2FeAzEmXMJ9PxcdVvc121GJsdO5N/QUS8nve3sbYBnw7Ll3recWTgtaNXJ2Ivn4te3cT9DTMhIaU7KaX4W3lWNVXL/W1DExZtZ1xgQnjkwYcvNwxnG2dLH1cFJnA=="}</script>
+<script id="dados" type="application/json">{"s":"yxH4FneXZtTah8XzGbrPTg==","i":"MmGvgwzweF5Rb2UK","c":"C0a7x8+lYts+Pt2/5wHH7cXGvmyas6kmoefKbJ9vU7gCg1LDuTvAR3nD65GpPmuo/QPDZ72CHqib1KQJrS5e6t5VACvDzariR5c6NDirv/kwcCIFTii4H8OPBKkn+07/a3gOJCxUFQjcnWBZzyl6d/zsfLxFFw/16LyB7YrnCCnRDNZMppD1WRuQWAF0sTJlXvNlF9c93ad+lKicYKEYXCeiHdNIim8PFJsLZvPVEbuMyBJeV6xQqsXMsbCrwt2ID4rxrD9ZBGE5jnZivk6FXakHPNYSBkL2bIMyg4ekOvb2g8OUoRlRzdzyFeTAGHGpL1vuSktkzgHKS9my3LsOLNfbS0IxT/4bMWVkUxdOkbGDWJGVbNm28YnOxwp59Nh5yw1oTSfIPyGtaqJ6Ks4W2pzvgmPPHK8Ec8oCv7SfjpCs83q818KjU+riieiz8AVnANl2Zrr1TpDgDQ+oYDnY0G860r18qnRisiPlFrgZyGJcAjhMiUbmoGpbs8CMCmxYK3fzEA3lRnkiCdxEQAALoN2ZoAVehWTm1BxqoohGrm5GOC82zb0XchpJk0XWDXg9RTp60yN2wwAkYREgjZ1Ety5anrjuUSxg2qeswo4JE2qrvnjemmw0pZu9WltLYYfJVirTvVtHE6NvXSef6R00IIzD8VmaoYBYwJ/2orZiGGJt/Qzhc75cvwpvqJqEINMMCXtUAw/EN27xSyrkyeTTDTcllINDcp54I2lb+kao6vxMFtK0WRTdSgQ9tc3QvrIZqckYDpaSSrnntIiP40Vsk22zITnKzMiPcsBGeL2OrYubXI/wXxD7nXO1jO5j4SbRLmInWbJfHZWHDgv17sjrYnUI6M5Ya1WX0IvsKKvlFX4W57XnvSV1AqOFxVQFhbTSK7PFKtCNuirHQeMEJBGlrGH+g1cVwkDjrEZIuCIB0Wj7eYlLon6D6McYH0TH51U2FNECvYy2PgoeV0khKmo2wDQQKn7SCAXJJkzNnatxuB3TXRPzbTy+oAkZ67kggoPvEdWEk/k/fPE+msDlMz76bn9cAf/HguQFKMXp7ZPP1heOCS3OefvRZfnR5GIAw5hn1/0AWNjU+mO4H1Kbg2Xy7VistLjE2RRmXiAOD0D8HpocOb8d12FH6Ac6RtW8g2DJbQWNGoshfXT4dcEXgPJxHwJQQHZOmyYfs/qk90XSQcZRtW4bU9xlA2VsHSMX/LASef6Rrh15d6qR6R/Bu1nH3lg5twXf8Q+3rLfzW13y9McGTKmWz+nW9qWxWJC3e7nruPY5nTIB/qhuIY9P/ZknNoI0YiszttNA7dnj+XVDfxF9S7ac30dNk73O6Sd8lCVMY+7KQgwsPLqAVNRaTrdBTqZa4XGVK3gvIbDmbITHmy1N+DzvdXJ9aDFROJoebiAgNMQgappXc39up1j1MjIJ2w5hhTYzG2AVNtZHmTw8WQ=="}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -302,7 +305,7 @@ const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+Stri
 function hoje(){const t=new Date();if(t.getHours()<6)t.setDate(t.getDate()-1);return iso(t)}
 const MES=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 const SEM=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
-const MARCA={mj:'FESTA DO MICHAEL',n2000:'NOSTALGIAS 2000',n2010:'NOSTALGIAS 2010',antr:'A NIGHT TO REMEMBER'};
+const MARCA={mj:'FESTA DO MICHAEL',n2000:'NOSTALGIAS 2000',n2010:'NOSTALGIAS 2010',antr:'A NIGHT TO REMEMBER',lov:'LOVATIC EXPERIENCE'};
 const PIN='<svg viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0C2.7 0 0 2.6 0 5.9 0 10.3 6 16 6 16s6-5.7 6-10.1C12 2.6 9.3 0 6 0zm0 8.2A2.3 2.3 0 1 1 6 3.6a2.3 2.3 0 0 1 0 4.6z"/></svg>';
 const fmt=n=>Number(n).toLocaleString('pt-BR');
 const brl=n=>'R$ '+Number(n).toLocaleString('pt-BR');
@@ -413,7 +416,7 @@ document.getElementById('f').addEventListener('submit',async ev=>{
 const SYMPLA='Sympla Gnarly',TRIG='trig_01Mw6NTko5sT6MLUHgXiDc38';let MCP=null,ART=null;
 const capP=(async()=>{try{MCP=await window.claude.use('mcp')}catch(_){}try{ART=await window.claude.use('artifact')}catch(_){}})();
 async function mostraBotao(){await capP;const meu=!!MCP&&MODO==='caio'&&!!DADOS;document.getElementById('atualizar').hidden=!meu;document.getElementById('lib').hidden=!meu}
-const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias'};
+const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias',lovatic:'Lovatic DLBR · Lovatic Experience'};
 document.getElementById('lib').addEventListener('click',async ev=>{const b=ev.target.closest('button[data-p]');if(!b||!MCP)return;b.disabled=true;
   try{await MCP.callTool('Claude Code Remote','fire_trigger',{trigger_id:TRIG,text:'LIBERAR '+b.dataset.p});
     snack('Liberando "'+NOMEP[b.dataset.p]+'". Em uns 5 minutos quem travou pode recarregar a página e digitar a senha de novo.')}
