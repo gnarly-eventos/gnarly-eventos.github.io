@@ -1,5 +1,5 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><style>html,body{margin:0;padding:0}[hidden]{display:none!important}</style></head><body>
-<title>Lovatic DLBR · Lovatic Experience</title>
+<title>Lovatic DLBR · Metas da Lovatic</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Bowlby+One&display=swap">
@@ -126,7 +126,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section id="trava" class="gut">
   <form id="f" autocomplete="off">
     <span class="logo">Gnarly Eventos</span>
-    <h1>Lovatic Experience</h1>
+    <h1>Metas da Lovatic</h1>
     <label for="senha" hidden>Senha</label>
     <div class="campo"><input id="senha" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" required><button type="button" id="olho" aria-label="Mostrar senha" aria-pressed="false"></button></div>
     <button type="submit" id="entrar">Entrar</button>
@@ -138,7 +138,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section id="painel" hidden>
   <div class="bar">
     <div class="col gut">
-      <div class="t"><h1>Lovatic Experience</h1><button type="button" id="atualizar" hidden>Atualizar agora</button><button type="button" id="sair" hidden>Sair</button></div>
+      <div class="t"><h1>Metas da Lovatic</h1><button type="button" id="atualizar" hidden>Atualizar agora</button><button type="button" id="sair" hidden>Sair</button></div>
     </div>
     <div class="col tabs"><span class="on">PRÓXIMOS</span></div>
   </div>
@@ -151,12 +151,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"Je8k4BAgYv4t4yn9eXgFSg==","i":"qlwk8LcbYAxe4Ayb","c":"D1F+vjILlNWKW5x6xupluaibvl4kF/V8W1uGDcIDbfKnT31ZDKXm+GXNIOo4MKRswXooXNvOX1TNr9nYLciPdL3bL6eBAEy0bvWXCtV8gdIOHVlkBqopIciYWVrvde7aulnbCKQeIAQvxNyTTfh171BEbKiUPNZJxDCvLlJ5kDZZSzQ1ayRnrPEsjo+YpsJyT5NUIgAn9cTFRGhnw5zVMUk/NLBJYNlHN+T3lS0386UDfpu+KNBPeuNjt1egjao3NaIQVxsB0pU8hCq4z5rknWFi1gi4nN9wEBFOi3f9qMJ/E9i0CQGwKW7YKYTVvrlv+bCJ"}</script>
+<script id="dados" type="application/json">{"s":"xIlYt/UrhY8XKZKg0XpUag==","i":"eX9onqo+6V9CtWlc","c":"2dfECTZ8XJn7dxjjN22vBPkWG0CYD3TWnfvGEWB3tZBl9JrI8pHrzWT8Yb2tNAlfWWTOAAibKJGzK1hcWunVyxkfL04JAEM0tqqSnLBd5m3uqRdPicC4V/MQZG7LXyuQifiVEke1AXgdlRxmx0WIMIA7SdG4MuisY+jbXtCkDcfzpxJgFkPI1leXYneskEqR9I0rn0Ifmw4rif6WSImwUbmEndgZR6qcnjz9EXXC3HNdyaIQMrHIaRDvqRo86IMojFcbJhFz91typLrCMZDyeNsT7R5f/7dAKUxRm7kNztes47qXOsnUlsZjhjdmRNhQIRGd"}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
 let BLOB=JSON.parse(document.getElementById('dados').textContent);
-const MODO='antr';
+const MODO='mjc';
 // ===== contas da Entrada de Eventos (mesma lógica) =====
 const num=v=>{if(v===null||v===undefined||v==='')return 0;if(typeof v==='number')return v;let s=String(v).replace(/R\$|\s/g,'');if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');const n=parseFloat(s);return isFinite(n)?n:0};
 const vC=r=>r&&r.status==='a informar'&&!num(r.valor)&&num(r.est)?num(r.est):num(r&&r.valor);
@@ -318,7 +318,7 @@ function caixa(rot,val,cls,txtZero){const d=el('div');d.append(el('span',null,ro
 const HORAS=[[9,32],[14,32],[17,32],[19,32],[23,32]];
 function proxima(){const sp=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'})),m=sp.getHours()*60+sp.getMinutes();
   const h=HORAS.find(([a,b])=>a*60+b+5>m),[a,b]=h||HORAS[0];return (h?'hoje':'amanhã')+' às '+String(a).padStart(2,'0')+':'+String(b+5).padStart(2,'0')}
-// ===== faixas do cachê do MJC (pagantes): até 200, 201 a 400, 401 ou mais =====
+// ===== faixas de cachê por pagantes (MJC e Lovatic DLBR): até 200, 201 a 400, 401 ou mais =====
 const FX=[{ate:200,v:200,t:'até 200'},{ate:400,v:500,t:'201 a 400'},{ate:null,v:1000,t:'401 ou mais'}];
 function faixa(v){const i=v<=200?0:v<=400?1:2,ini=i?FX[i-1].ate:0,fim=i<2?FX[i].ate+1:null;
   return {i,n:i+1,val:FX[i].v,prox:i<2?FX[i+1].v:null,falta:i<2?fim-v:0,pct:i<2?Math.min(100,Math.max(0,(v-ini)/(fim-ini)*100)):100}}
@@ -363,7 +363,7 @@ function render(dados){
     const st=el('div','st');st.append(el('i'),document.createTextNode('Publicado'));
     const loc=el('div','loc');loc.innerHTML=PIN;loc.append(el('span',null,e.l+' - '+e.c+(e.uf?', '+e.uf:'')));
     info.append(el('h2',null,e.n),data,st,loc);
-    const f=e.m==='mj'&&MODO!=='antr'?faixa(e.v):null;
+    const f=(e.m==='mj'||e.m==='lov')&&MODO!=='antr'?faixa(e.v):null;
     const nums=el('div','nums');
     if(MODO==='mjc'){nums.classList.add('n4');nums.append(caixa('Vendidos',e.v,'vd'),caixa('P/ pagar a festa',e.q,null,'Festa paga'),caixa('P/ próxima faixa',f.falta,null,'Faixa máxima'),caixa('P/ esgotar',e.x,null,'Esgotado'))}
     else nums.append(caixa('Vendidos',e.v,'vd'),caixa('P/ sair do prejuízo',e.q,null,'Saiu do prejuízo'),caixa('P/ esgotar',e.x,null,'Esgotado'));
@@ -416,7 +416,7 @@ document.getElementById('f').addEventListener('submit',async ev=>{
 const SYMPLA='Sympla Gnarly',TRIG='trig_01Mw6NTko5sT6MLUHgXiDc38';let MCP=null,ART=null;
 const capP=(async()=>{try{MCP=await window.claude.use('mcp')}catch(_){}try{ART=await window.claude.use('artifact')}catch(_){}})();
 async function mostraBotao(){await capP;const meu=!!MCP&&MODO==='caio'&&!!DADOS;document.getElementById('atualizar').hidden=!meu;document.getElementById('lib').hidden=!meu}
-const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias',lovatic:'Lovatic DLBR · Lovatic Experience'};
+const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias',lovatic:'Lovatic DLBR · Metas da Lovatic'};
 document.getElementById('lib').addEventListener('click',async ev=>{const b=ev.target.closest('button[data-p]');if(!b||!MCP)return;b.disabled=true;
   try{await MCP.callTool('Claude Code Remote','fire_trigger',{trigger_id:TRIG,text:'LIBERAR '+b.dataset.p});
     snack('Liberando "'+NOMEP[b.dataset.p]+'". Em uns 5 minutos quem travou pode recarregar a página e digitar a senha de novo.')}
