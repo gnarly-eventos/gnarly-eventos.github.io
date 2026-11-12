@@ -151,7 +151,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"TQuwV6jpxiReegY/6OkH1Q==","i":"x168FHoUd8wQBeJ2","c":"l3zWHk8PIeUndaKChUgP/otLyiwxt9WlFWlCV0eAzeFsbylwPCqd0EXDJLeGqtDIWBWWU2sMCd0RqI0bm/B27VGMuzH5PmaNlJRr0ar93JNFc3IbUleCdu/XyeT8GDWzYd9RsKDD7rae3y5y7L5QwbeKO3xDQPYSoDebkLRh8ZgRBM8wILGpo3DwARNUEGHk0kcgE/TGXnWkMirz2CTkyEyaSBdeXLxtYiRjaFfZk7ZYazj0wFxy+LPBCJeY+AvQ70C6mUMNz1qCR2Iy7dKN/os+CXl8lD1BxWqrXDCk4ar/NyJ3w54PruD12IchadO+AibW"}</script>
+<script id="dados" type="application/json">{"s":"9+cW4axXHESW0hvw1ldcNw==","i":"9Q3v0YpcHzqHJXj6","c":"oJOG1MPPCPdV4j3XVkLasSSd7ZO0RJZ3rDsyvGwerHcltvi+WH46VEGdXYMAvPj7FwfMtaOqZ50Miih9ReqcbqM7YPV0QSCXziNEWOdbhE3qTrQHi/PWREhUy0vYnAgA67nJpTe7SOUTKurOUJ1dd8mGYt1xVpKKIKYowDeBTl74Bk+KOXxT6+T6t70o1qAHB/1H+zV0yCVaRDNG758W9o7sCNTAewoLIzP0tweHEK7ZtDl7RqsO3NOjbUFgDF1vquT4w0nU3ZZFtTfRw1x17Jq2VmaeTBBzfPeV/S66ZyBZ6dk2RhEAnu1L2YIuzQFydzSP"}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -413,7 +413,7 @@ document.getElementById('f').addEventListener('submit',async ev=>{
   if(tentativas().n>=MAXT){travar();return}})();
 
 // ===== atualizar pelo Sympla (só nas páginas do Caio, que têm o conector Sympla Gnarly) =====
-const SYMPLA='Sympla Gnarly',TRIG='trig_01Mw6NTko5sT6MLUHgXiDc38';let MCP=null,ART=null;
+const SYMPLA='Sympla Gnarly',TRIG='trig_011GEaEW2WcJdixrE2H1TfUk';let MCP=null,ART=null;
 const capP=(async()=>{try{MCP=await window.claude.use('mcp')}catch(_){}try{ART=await window.claude.use('artifact')}catch(_){}})();
 async function mostraBotao(){await capP;const meu=!!MCP&&MODO==='caio'&&!!DADOS;document.getElementById('atualizar').hidden=!meu;document.getElementById('lib').hidden=!meu}
 const NOMEP={colab:'Colaboradores · Festa do Michael',mjc:'Isaque · Metas do MJC',socios:'Sócios · ANTR e Nostalgias',lovatic:'Lovatic DLBR · Metas da Lovatic'};
