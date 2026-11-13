@@ -79,6 +79,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .lov{background:radial-gradient(120% 140% at 50% 110%,#ff4fa3 0,#7b1fa2 50%,#1c0630 100%);color:#fff}
 .lov b{color:#fff;text-shadow:0 3px 0 #4a0d6b,0 0 22px rgba(255,120,200,.5)}
 .lov small{background:#fff;color:#4a0d6b}
+.harry{background:radial-gradient(120% 140% at 50% 110%,#5fb4ff 0,#1f5fbf 50%,#0a1f4a 100%);color:#fff}
+.harry b{color:#fff;text-shadow:0 3px 0 #123a80,0 0 22px rgba(120,190,255,.5)}
+.harry small{background:#fff;color:#123a80}
 .info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:14px 16px 12px}
 .info h2{margin:0;font-size:15px;font-weight:500;text-transform:uppercase;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .data{grid-row:1/4;grid-column:2;align-self:start;border:1px solid #cfcfcf;border-radius:3px;text-align:center;width:38px;padding:2px 0 3px;line-height:1}
@@ -151,7 +154,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"YA8YM5BHactq1w/F8m+YXg==","i":"KzFOvzwpAGAbty53","c":"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"}</script>
+<script id="dados" type="application/json">{"s":"jEAa2GrFcCKiTOEIuAy4AA==","i":"t/hma7e/vVZyjJ5+","c":"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"}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -162,6 +165,8 @@ const num=v=>{if(v===null||v===undefined||v==='')return 0;if(typeof v==='number'
 const vC=r=>r&&r.status==='a informar'&&!num(r.valor)&&num(r.est)?num(r.est):num(r&&r.valor);
 const estimado=r=>r&&r.status==='a informar'&&!num(r.valor)&&num(r.est)>0;
 const r2=v=>Math.round(v*100)/100;
+// Só o Michael usa a conta real (sem imposto, % da casa igual ao fechamento). Lovatic e Festa do Harry usam de propósito a conta conservadora de ANTR/Nostalgias (30% da casa e 5% de imposto), sem cachê: decisão do Caio em 12/11/2026, para o "sair do prejuízo" nunca ficar abaixo do que a festa precisa.
+const ehMJ=e=>!!e&&e.tipo==='Festa do Michael';
 const isoDe=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const hojeISO=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 function copoCamQtd(e){return Math.max(0,Math.trunc(num(e&&e.copoCamarote&&e.copoCamarote.qtd)))}
@@ -181,28 +186,28 @@ function impostoCasaDe(e,total){const pi=pctImposto(e.imposto);if(!pi)return 0;c
 function calc(e){
   const f=e.fat, sp=e.openbar==='Sim', tudoOB=sp&&!!e.tudoOpenBar;
   const ob=sp?num(f.openbar)+num(f.portOB):0;
-  const pistaTot=tudoOB?0:num(f.pista)+num(f.portPista), cacheF=e.tipo==='Festa do Michael'?0:num(e.cacheFechado);
+  const pistaTot=tudoOB?0:num(f.pista)+num(f.portPista), cacheF=ehMJ(e)?0:num(e.cacheFechado);
   const total=pistaTot+ob+cacheF;
   const copoDed=tudoOB?0:Math.min(pistaTot,copoCamDed(e)), baseCasa=pistaTot-copoDed;
   const mq=maqCasa(e),fL=mq.loja?1:0.95,lojaCasa=mq.loja?e.loja.reduce((a,r)=>a+num(r.bruto),0):0;
   const lojaLiq=e.loja.reduce((a,r)=>a+num(r.bruto)*fL,0)+num(f.coposValor)+num(f.storeValor);
   const mjcPag=(e.mjc&&e.mjc.pagantes||[]).reduce((a,r)=>a+num(r.qtd),0), mjcGrat=(e.mjc&&e.mjc.gratuitos||[]).reduce((a,r)=>a+num(r.qtd),0);
   const mjcCache=e.tipo==='Festa do Michael'?(mjcPag<=200?200:mjcPag<=400?500:1000):0;
-  const pagFaixa=e.tipo==='Festa do Michael'?mjcPag:num(e.ingressosVendidos)+(sp?num(e.pagantesOB):0);
-  const pct=pctCasaDe(e,pagFaixa), pctInt=e.tipo==='Festa do Michael'?pct:(e.aluguel?0:0.3);
+  const pagFaixa=ehMJ(e)?mjcPag:num(e.ingressosVendidos)+(sp?num(e.pagantesOB):0);
+  const pct=pctCasaDe(e,pagFaixa), pctInt=ehMJ(e)?pct:(e.aluguel?0:0.3);
   const impCasa=impostoCasaDe(e,total);
   const portCasa=e.portaria==='Da casa'?num(f.portPista)+(sp?num(f.portOB):0):0, taxaMaq=mq.t>0?r2((portCasa+lojaCasa)*mq.t):0;
-  const comissao=e.tipo==='Festa do Michael'?0:Math.max(0,baseCasa*(pctInt-pct));
+  const comissao=ehMJ(e)?0:Math.max(0,baseCasa*(pctInt-pct));
   const custos=e.custos.reduce((a,r)=>a+vC(r),0)+mjcCache+taxaMaq, estN=e.custos.filter(estimado).length;
   const casaOB=ob*0.4+ob*0.6*0.5, festaOB=ob*0.6*0.5;
   const jaRec=portCasa+lojaCasa;
   const adic=e.adicionais.reduce((a,r)=>a+(r.efeito==='Descontar'?-1:1)*num(r.valor),0);
   const impCasaParte=r2(impCasa*pct);
   const repasseCasa=baseCasa*pct+casaOB-jaRec+adic-impCasaParte+taxaMaq;
-  const resultado=(pistaTot-baseCasa*pctInt+festaOB+cacheF)-custos-(e.tipo==='Festa do Michael'||cacheF>0?0:total*0.05)+lojaLiq;
+  const resultado=(pistaTot-baseCasa*pctInt+festaOB+cacheF)-custos-(ehMJ(e)||cacheF>0?0:total*0.05)+lojaLiq;
   const pend=e.custos.filter(r=>r.status==='a informar').length;
   // ponto de equilíbrio (sem lojinha, para ser conservador)
-  const mj=e.tipo==='Festa do Michael', impPct=mj||cacheF>0?0:0.05, q=e.equilibrio||{};
+  const mj=ehMJ(e), impPct=mj||cacheF>0?0:0.05, q=e.equilibrio||{};
   const semLoja=(pistaTot-baseCasa*pctInt+festaOB+cacheF)-custos-total*impPct;
   const falta=Math.max(0,-semLoja);
   const cP=tudoOB?0:num(q.precoPista)*((1-pctInt)-impPct), cO=sp?num(q.precoOB)*(0.30-impPct):0;
@@ -253,7 +258,7 @@ function aplicarPrecoSympla(e,a,cats){
   if(!q.manual){if(p)q.precoPista=p.preco;if(o)q.precoOB=o.preco}}
 
 function aplicarEm(ev,a,cats,arquivo){
-  const T=a.tot,sp=ev.openbar==='Sim',mj=ev.tipo==='Festa do Michael',r2=v=>Math.round(v*100)/100;
+  const T=a.tot,sp=ev.openbar==='Sim',mj=ehMJ(ev),r2=v=>Math.round(v*100)/100;
   ev.fat.pista=r2(T['Pista'].v);if(sp)ev.fat.openbar=r2(T['Camarote open bar'].v);
   ev.fat.coposValor=r2(T['Copo'].v);ev.fat.coposQtd=T['Copo'].q;
   const qP=T['Pista'].q,qO=sp?T['Camarote open bar'].q:0;
@@ -305,7 +310,7 @@ const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+Stri
 function hoje(){const t=new Date();if(t.getHours()<6)t.setDate(t.getDate()-1);return iso(t)}
 const MES=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 const SEM=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
-const MARCA={mj:'FESTA DO MICHAEL',n2000:'NOSTALGIAS 2000',n2010:'NOSTALGIAS 2010',antr:'A NIGHT TO REMEMBER',lov:'LOVATIC EXPERIENCE'};
+const MARCA={mj:'FESTA DO MICHAEL',n2000:'NOSTALGIAS 2000',n2010:'NOSTALGIAS 2010',antr:'A NIGHT TO REMEMBER',lov:'LOVATIC EXPERIENCE',harry:'FESTA DO HARRY'};
 const PIN='<svg viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0C2.7 0 0 2.6 0 5.9 0 10.3 6 16 6 16s6-5.7 6-10.1C12 2.6 9.3 0 6 0zm0 8.2A2.3 2.3 0 1 1 6 3.6a2.3 2.3 0 0 1 0 4.6z"/></svg>';
 const fmt=n=>Number(n).toLocaleString('pt-BR');
 const brl=n=>'R$ '+Number(n).toLocaleString('pt-BR');
