@@ -154,7 +154,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"ziNasyE3Fz0PXK+3y57PMg==","i":"ap06VrorgA7leZ0M","c":"x/ZAmpdAUcMQSViDVQhYxQlpftwS0f/BLBFiIny79x5spqk41K6sgRynMB0XiW3GMdLE46UJEAt/E7U6/tVNRXOJsC0wo+/s9kAwP0l8D0bc3jjNGEeW29xOAab30rFEk4ss6H2m3ripxaELvIaZJGrn6/qWoBnDLOIiS4d+kk7o8mXR+Pm/YmYdC6EXAipvil5oNmHdtK3A6Kjy5g5fA74XjCvdS8kB2G/nuaXyG0nAnP98zWncH4K3XrGb7IXPLPev3HJAP9n1AuJQsfZb56vnRweAFAbLNxR49PMgT7Br5C5HFWqeg/KTNvhkBazhsr8="}</script>
+<script id="dados" type="application/json">{"s":"BwCcXj74e9foNKeHzXoOrw==","i":"8rQp7zG+HVFOhne1","c":"Y563sNEsU+TF/jBULXByan8TUSS6MAzvuKoAtt+vQJrXAYXoMEu7qhrbWMZzbpzNt3JAwBlvi0vWwG6ajv54+QntF4jlm/u/U6ncUHnGD84xf9KQRF4NaZzxOudAsSJjnix5VfdQzO8Dze4KNgi+A6wRkKO5wr3ICEmCDiB9N/fq371T3SNl0/+s+jkXjktXIkc+eTo27X39OsNl3dv1L7myaxWBngli2c5exkQ50c65tBBF3yEjYdPgazm0DI/rW7S0qF87AuIHdXJSUlj7KUsuq7SUv8zLv3eoSsXcpbpI9UrXdzGJfWF7HS7YhP3il40="}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -338,7 +338,7 @@ function plano(e,f){const dias=diasAte(e.d),rit=(e.r7||0)/7;
   const precisa=Math.ceil(f.falta/dias),rr=Math.round(rit*10)/10;
   return 'Para chegar na faixa '+(f.n+1)+' precisamos de ~'+fmt(precisa)+' por dia'+(rr>0?' (hoje vendemos ~'+fmt(rr)+' por dia)':'')+'. Hora de reforçar a divulgação.'}
 function textoEquipe(e,f){const dt=e.d.slice(8,10)+'/'+e.d.slice(5,7);
-  return '*Festa do Michael · '+e.c+' '+dt+'*\nVendidos: '+fmt(e.v)+'\nFaixa '+f.n+' de 3'+(f.i<2?' · faltam '+fmt(f.falta)+' para a faixa '+(f.n+1):'')+'\n'+ritmoTxt(e)+'\n'+plano(e,f)}
+  return '*Festa do Michael · '+e.c+' '+dt+'*\n'+'Vendidos: '+fmt(e.v)+'\nFaixa '+f.n+' de 3'+(f.i<2?' · faltam '+fmt(f.falta)+' para a faixa '+(f.n+1):'')+'\n'+ritmoTxt(e)+'\n'+plano(e,f)}
 function blocoFaixa(e,f){const b=el('div','fx');
   const reg=el('div','regua');FX.forEach((x,k)=>{const d=el('div',k===f.i?'on':k<f.i?'ja':null);
     d.append(el('span',null,'Faixa '+(k+1)),el('b',null,brl(x.v)),el('small',null,x.t));reg.append(d)});
