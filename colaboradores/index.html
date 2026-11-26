@@ -154,7 +154,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="snack gut" id="snack" hidden role="status" aria-live="polite"><div class="col"><span id="snacktx"></span><button type="button" id="snackx">OK</button></div></div>
 
-<script id="dados" type="application/json">{"s":"ErxW4xQceYTmicx4r+bNsQ==","i":"xtNTlQ+EWcgmXhMc","c":"B/QjSZcXyErmja8j9sA7qz4j3SXgD9xnd/Ffy0QX4NkQPpNOSV1s0Q6/i08taWnxJxiOaEyr8SFhe778ze8DlNJ8ShbF/dUBtellMzKyNqGJCxdYbR52DZqunh/dRyEkkoTIh5fxQrSARsJJ6PwzND96ESZLCQd3MJRIGnQ4X4KnoaMeG6HFDupenRhaD8+2kvgRt6RXx+3mai3Vf6NBBnRTIPCjcvXOAsXoX3JfrVSaDc6CEL8zSNG5LGlOPbDKFyqa3b0+PRHYtqYNfSbpnT7bF7NKk4WQLsIieE59i8vhVjYpkaKTi6BxILE0+QVemElWly/3ruLqgEedyKiGEB8KEzygq8M+0bbq3FOkZkENeMR+HIJRWQ2Q+FDnnELWT3/COGxBlHuPwjHrzeM9AQI5nT+iqqpeSSOzhSC3o/Bv2yVpJFMp/C6jxgLbdFlb8RD8I+N0ElPnJJeomc9BPcDjyLjK6LBXj6B+aIW4GpSl0rCU5U/IurLCr6ViOCiGSLc4K/7y+LyRiR0Z1aPxwZpZwer0fQsSMxsBkbS71Hb+lfEQcjaPGfuRc8yYypNDTWBV+FTwrLngMmGJBTVQNS9JOONIMzoUD6T3KfDs9CvVSvC+bTuQ43lWRI+2ugx1s2aq0UNt9jeoWJjm/87Sgu8BFInnYLQNDnkDR7KIcR7lztLWVVMHjtlWYPMzfq3tuqig1ZxuSutBUsor13VBnol3smi4ERLbsO61"}</script>
+<script id="dados" type="application/json">{"s":"vu2glbpWl1/OLNSyi9mcVQ==","i":"7zH69H60oczkLWvL","c":"qgT2ggiHgn3NwwhDwSwS0G/9WzC91UTTO+BxAFqnGsBG4CDW5E2E5//lURo8zqO0WmrnyIp2PfPeTYywyNJViAbumR1fdlqvqQPPlwfxqDlA3muDCfhbbs8wSqnBXrqgmZnPWeIvNHEzy3aaYPoGTktzi54PEVyZ+Z6w/yTaY2natBi50VdZuxpRML+MToNSo4bogsp4kdCmjFfTFsahdpSzf+gIwWK5m5sAnT67rqG1bzqb2UQtdos8kvIaeVjo/HESjPCC2wvDeq8AGSEtd4DjAC1KhQw+t0YiPF0TPxSHHRdCcaEte8ngLWx9fzDGgAH8ALdMLGcQdISHKUDihDjCfmLt6ebk4L2Jq0aPnloAAYeF1KuqTWIxKsxp8ipyuXVtmFPBfD6ftYabcKiK5OCHFSmVdlF199WYJBQr6PL+TF/NPY3uyiHMLTU0Q2PFUOwrRNutMWOQM0o1jhN5diU9DD4pjQkSKHq93EiR7H0bNBlXoyQRL6uflQdruSz+kgJXhOeRL1nhSRevUg6xX38wHxMHDiwmJxdDI0DSz+taVSA75hE7T9NaiB2po3E/lT21n9lB5gWfFzhPgp/WGgWIA+DImpAWaBoWOR8EVS8X76PZcW80Q2UcsO8zlikvuHMOlEx/3JEIasFuBh6m12mqqvUuigmd5acB4u8UJWPYuRTFwojsGj4w2T/DTNON9vSk79znQ4pYbRgayagHoSz2yYe+cbyxbX988A=="}</script>
 <script>
 const PRISTINE=document.body.innerHTML;
 const SKEL='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>';
@@ -393,7 +393,7 @@ mostraOlho(false);
 document.getElementById('olho').addEventListener('click',()=>{const i=document.getElementById('senha'),v=i.type==='password';i.type=v?'text':'password';mostraOlho(v);i.focus()});
 document.getElementById('sair').addEventListener('click',sair);
 // ===== trava por tentativas erradas (guardada no aparelho de quem abre) =====
-const PAGINA='colab',LIBERADO=0,MAXT=5,KT='trava-'+PAGINA;
+const PAGINA='colab',LIBERADO=1794188366568,MAXT=5,KT='trava-'+PAGINA;
 const LS={get(){try{return JSON.parse(localStorage.getItem(KT)||'null')}catch(_){return null}},set(v){try{localStorage.setItem(KT,JSON.stringify(v))}catch(_){}},del(){try{localStorage.removeItem(KT)}catch(_){}}};
 function tentativas(){let t=LS.get();if(!t||typeof t.n!=='number')return {n:0,em:0};if(LIBERADO&&LIBERADO>=t.em){LS.del();return {n:0,em:0}}return t}
 function travar(){document.getElementById('f').hidden=true;document.getElementById('travado').hidden=false}
